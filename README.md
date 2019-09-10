@@ -37,18 +37,20 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Be sure to select the appropriate routes for each of these actions so they conform to the REST standard.
   
  ### Read / GET - read an item
-- Required Input Parameters for Request
+- Required Input Parameters for Request:
   1. api
   2. id
   3. reservations
 
-- Request
- 0. '/api/:id/reservations'
+- Request:
+  - '/api/:id/reservations'
  
 - Summary of Request:
-Gets all reservations of one listing
+  - Gets all reservations of one listing
 
 - SAMPLE Output Response: 
+
+
 {
   Listing: L1,
   Dates: [
@@ -70,7 +72,7 @@ Gets all reservations of one listing
 }
 
 - Status Code 
-200
+  - 200
  
  
  ### Create / POST - create a new item
