@@ -38,12 +38,12 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   
  ### Read / GET - read an item
 - Required Input Parameters for Request
-  *api
-  *id
-  *reservations
+  1. api
+  2. id
+  3. reservations
 
 - Request
- '/api/:id/reservations'
+ 0. '/api/:id/reservations'
  
 - Summary of Request:
 Gets all reservations of one listing
