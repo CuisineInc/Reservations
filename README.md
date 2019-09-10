@@ -38,9 +38,9 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   
  ### Read / GET - read an item
 - Required Input Parameters for Request:
-  1. api
-  2. id
-  3. reservations
+   - api
+   - id
+   - reservations
 
 - Request:
   - '/api/:id/reservations'
@@ -77,27 +77,38 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
  
  ### Create / POST - create a new item
 - Required Input Parameters for Request
-
+   - api
+   - id
+   - reservations
+   - addreservation
 - Request
- '/api/:id/reservations'
+  - '/api/:id/reservations/addreservation'
  
-- Summary of Request
+- Summary of Request:
+  - add a reservation to a listing
 
-- SAMPLE Output Response: 
- 
- 
+- SAMPLE Input Response: 
+  - Reserved: { id: #, 
+- Status Code
+  - 201
+  
  ### Update / PUT - update an item
 - Required Input Parameters for Request
+  - api
+  - id
+  - updatereservation
 
 - Request
- '/api/:id/reservations'
+  -'/api/:id/reservations/updatereservation'
  
-- Summary of Request
+- Summary of Request:
+  - updates a specific reservation
 
 - SAMPLE Output Response: 
  
  ### Delete / DELETE - delete an item
  - Required Input Parameters for Request
+   -
 
 - Request
  '/api/:id/reservations'
