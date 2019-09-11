@@ -45,7 +45,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - SAMPLE Output Response: 
 
-```json
+```javascript
 {
   Listing: L1,
   Dates: [
