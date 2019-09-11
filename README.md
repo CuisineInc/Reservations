@@ -1,13 +1,8 @@
 # Project Name
 
-Llaminati's Restaurant Reservation System
+CuisineInc's Restaurant Reservation System Database System
 
 ## Related Projects
-
-  - https://github.com/llaminati/Banner-Gallery
-  - https://github.com/llaminati/Menu
-  - https://github.com/llaminati/Reservations
-  - https://github.com/llaminati/Reviews
 
 ## Table of Contents
 
@@ -63,7 +58,15 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
           Time: String,
           Reservations: {
             Open: Number,
-            Reserved: Number 
+            Reserved: Number ,
+            PeopleReserverd:[
+            {
+             Id: Number,
+             Date: String,
+             Time: String,
+             PartySize: Number
+            }
+            ]
           }
         }
       ]
@@ -88,7 +91,12 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - add a reservation to a listing
 
 - SAMPLE Input Response: 
-  - Reserved: { id: #, 
+      -    {
+             Date: String,
+             Time: String,
+             id: Number,
+             partySize: Number
+            }
 - Status Code
   - 201
   
@@ -96,6 +104,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Required Input Parameters for Request
   - api
   - id
+  - reservations
   - updatereservation
 
 - Request
@@ -104,17 +113,36 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - Summary of Request:
   - updates a specific reservation
 
-- SAMPLE Output Response: 
- 
+- SAMPLE input Response: 
+      -    {
+             Id: Number,
+             Date: String,
+             Time: String,
+             PartySize: Number
+            }
+ - Status Code
+  - 200
+  
  ### Delete / DELETE - delete an item
  - Required Input Parameters for Request
-   -
-
+   - api
+   - id
+   - reservations
+   - deletereservation
+   
 - Request
- '/api/:id/reservations'
+ '/api/:id/reservations/deletereservation'
  
 - Summary of Request
+  - deletes a specific reservation
 
-- SAMPLE Output Response: 
+- SAMPLE input Response: 
+     -    {
+             Id: Number,
+             Date: String,
+             Time: String,
+             PartySize: Number
+            }
  
-
+- Status Code
+  - 200
