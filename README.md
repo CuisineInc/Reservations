@@ -45,7 +45,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - SAMPLE Output Response: 
 
-
+```json
 {
   Listing: L1,
   Dates: [
@@ -73,7 +73,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
     }
   ]
 }
-
+```
 - Status Code 
   - 200
  
@@ -91,12 +91,14 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - add a reservation to a listing
 
 - SAMPLE Input Response: 
-      -    {
+```
+         {
              Date: String,
              Time: String,
              id: Number,
              partySize: Number
             }
+  ```
 - Status Code
   - 201
   
@@ -114,12 +116,15 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - updates a specific reservation
 
 - SAMPLE input Response: 
-      -    {
+
+```
+           {
              Id: Number,
              Date: String,
              Time: String,
              PartySize: Number
             }
+```
  - Status Code
   - 200
   
@@ -137,12 +142,13 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
   - deletes a specific reservation
 
 - SAMPLE input Response: 
-     -    {
+```
+         {
              Id: Number,
              Date: String,
              Time: String,
              PartySize: Number
             }
- 
+ ```
 - Status Code
   - 200
