@@ -38,7 +38,7 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
    - reservations
 
 - Request:
-  - '/api/:id/reservations'
+  - `/api/:id/reservations`
  
 - Summary of Request:
   - Gets all reservations of one listing
