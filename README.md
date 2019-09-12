@@ -9,6 +9,7 @@ CuisineInc's Restaurant Reservation System Database System
 1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
+1. [API](#development)
 
 ## Usage
 
@@ -19,136 +20,101 @@ CuisineInc's Restaurant Reservation System Database System
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 - Node 6.13.0
-- etc
+
 
 ## Development
 
 ### Installing Dependencies
+npm install
 
-### Support CRUD from your API
 
+### API
 
-- Extend the existing API to support all CRUD operations. This should be done with the inherited DBMS:
-- Be sure to select the appropriate routes for each of these actions so they conform to the REST standard.
-  
  ### Read / GET - read an item
-- Required Input Parameters for Request:
-   - api
-   - id
-   - reservations
 
 - Request:
-  - `/api/resturants/:id/reservations`
- 
-- Summary of Request:
-  - Gets all reservations of one listing
+  - `/api/restaurants/:id/reservations`
 
-- SAMPLE Output Response: 
+- Summary of Request:
+  - Gets all reservations of one restaurant
+
+- SAMPLE Output Response:
 
 ```javascript
 {
-  Listing: L1,
-  Dates: [
-   {
-      SeatNumber: Number,
-      Hours: String,
-      Date: String,
-      Seats: [
-        {
-          Time: String,
-          Reservations: {
-            Open: Number,
-            Reserved: Number ,
-            PeopleReserverd:[
-            {
-             Id: Number,
-             Date: String,
-             Time: String,
-             PartySize: Number
-            }
-            ]
-          }
-        }
-      ]
+  id: Number,
+  restaurantName: String,
+  seatCapacity: Number,
+  bookings:[
+    {
+      id: Number,
+      dateTime: DateTime,
+      seatAmount: Number,
     }
   ]
 }
 ```
-- Status Code 
+- Status Code
   - 200
- 
- 
+
+
  ### Create / POST - create a new item
-- Required Input Parameters for Request
-   - api
-   - id
-   - reservations
-   - addreservation
+
 - Request
-  - '/api/:id/reservations/addreservation'
- 
+  - `/api/restaurants/:id/reservations/addreservation`
+
 - Summary of Request:
   - add a reservation to a listing
 
-- SAMPLE Input Response: 
-```
-         {
-             Date: String,
-             Time: String,
-             id: Number,
-             partySize: Number
-            }
+- SAMPLE Input Response:
+```javascript
+    {
+      user_id: Number,
+      dateTime: DateTime,
+      seatAmount: Number
+      restaurant_id: Number
+    }
   ```
 - Status Code
   - 201
-  
+
  ### Update / PUT - update an item
-- Required Input Parameters for Request
-  - api
-  - id
-  - reservations
-  - updatereservation
 
 - Request
-  -'/api/:id/reservations/updatereservation'
- 
+  -`/api/restaurants/:id/reservations/updatereservation`
+
 - Summary of Request:
   - updates a specific reservation
 
-- SAMPLE input Response: 
+- SAMPLE input Response:
 
-```
-           {
-             Id: Number,
-             Date: String,
-             Time: String,
-             PartySize: Number
-            }
+```javascript
+    {
+      user_id: Number,
+      dateTime: DateTime,
+      seatAmount: Number
+      restaurant_id: Number
+    }
 ```
  - Status Code
   - 200
-  
+
  ### Delete / DELETE - delete an item
- - Required Input Parameters for Request
-   - api
-   - id
-   - reservations
-   - deletereservation
-   
+
 - Request
- '/api/:id/reservations/deletereservation'
- 
+ `/api/restaurants/:id/reservations/deletereservation`
+
 - Summary of Request
   - deletes a specific reservation
 
-- SAMPLE input Response: 
-```
-         {
-             Id: Number,
-             Date: String,
-             Time: String,
-             PartySize: Number
-            }
+- SAMPLE input Response:
+```javascript
+    {
+      user_id: Number,
+      dateTime: DateTime,
+      seatAmount: Number
+      restaurant_id: Number
+    }
  ```
 - Status Code
   - 200
