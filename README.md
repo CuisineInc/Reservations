@@ -54,19 +54,18 @@ npm install
   ]
 }
 ```
-- Status Code
-  - 200
+
 
 
  ### Create / POST - create a new item
 
 - Request
-  - `/api/restaurants/:id/reservations/addreservation`
+  - `/api/restaurants/:id/reservations`
 
 - Summary of Request:
-  - add a reservation to a listing
+  - add a reservation to a reservation
 
-- SAMPLE Input Response:
+- SAMPLE Input Request:
 ```javascript
     {
       user_id: Number,
@@ -75,46 +74,36 @@ npm install
       restaurant_id: Number
     }
   ```
-- Status Code
-  - 201
+
 
  ### Update / PUT - update an item
 
 - Request
-  -`/api/restaurants/:id/reservations/updatereservation`
+  -`/api/restaurants/:id/reservations/:id`
 
 - Summary of Request:
   - updates a specific reservation
 
-- SAMPLE input Response:
+- SAMPLE input request:
 
 ```javascript
     {
+      booking_id: Number,
       user_id: Number,
       dateTime: DateTime,
       seatAmount: Number
       restaurant_id: Number
     }
 ```
- - Status Code
-  - 200
+
 
  ### Delete / DELETE - delete an item
 
 - Request
- `/api/restaurants/:id/reservations/deletereservation`
+ `/api/restaurants/:id/reservations/:id`
 
 - Summary of Request
   - deletes a specific reservation
 
-- SAMPLE input Response:
-```javascript
-    {
-      user_id: Number,
-      dateTime: DateTime,
-      seatAmount: Number
-      restaurant_id: Number
-    }
- ```
-- Status Code
-  - 200
+
+
