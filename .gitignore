@@ -25,3 +25,12 @@ build/
 dist/
 
 aws-keys.json
+
+database/restaurantsTableData.csv
+database/usersTableData.csv
+database/tablesTableData.csv
+database/bookingsTableData.csv
+
+
+
+
