@@ -24,7 +24,6 @@ const restaurantGenerator = function () {
     // add one to counter
     counter++
   }
-  wstream.end()
   console.log('finished with restaruants')
 }
 
@@ -45,7 +44,6 @@ const userGenerator = function () {
     // add one to counter
     counter++
   }
-   wstream.end()
   // return userArray
   console.log('finished with users')
 }
@@ -56,20 +54,18 @@ restaurantGenerator()
 
 //tables generator
 const tablesGenerator = function(){
-  //create an array called tablesArray
-  let tableIdCounter = 0
+
   var wstream = fs.createWriteStream('tablesTableData.csv');
   // look through restArr
-  for (let i = 0; i < 30000000; i++){
+  for (let i = 0; i < 40000000; i++){
     // create a property called id and set it to counter
-    var id = tableIdCounter;
+    var id = i;
     // create a property called table size that is a randomly generated number from seatCapacity
     var table_size = getRandomInt(50);
     // create a property caled restaurant_id that that is the current resturants id
     var restaurant_id = getRandomInt(10000000);
     // add one to count
     wstream.write(`${id},${table_size},${restaurant_id}\n`, 'utf8');
-    tableIdCounter++
     }
    wstream.end()
    console.log('finished with tables')
@@ -87,12 +83,15 @@ const bookingsGenerator = function () {
   let counter = 0;
   var wstream = fs.createWriteStream('bookingsTableData.csv');
   // create a while loop that ends once it goes over 100 (for now)
-  while (counter <= 10000000){
+  while (counter <= 50000000){
     var id = counter
+    if (counter === 10000000 || counter === 20000000 || counter === 30000000 || counter === 40000000 || counter === 50000000 || counter === 60000000 || counter === 70000000 || counter === 80000000 || counter === 90000000){
+      console.log(counter)
+    }
     // create a property called date_time and set it to a randdomzid date/time in the future
     var date_time = faker.date.future();
     // create a property called tables_id and set it to tablesArr[randomTableIndex].id
-    var tables_id = getRandomInt(10000000)
+    var tables_id = getRandomInt(40000000)
     // create a  property called party_size and set it to tablesArr[randomTableIndex].table_size
     var party_size = getRandomInt(50)
     // create a property called restaurant_id and set it to tablesArr[randomTableIndex].restaurant_id
@@ -106,5 +105,5 @@ const bookingsGenerator = function () {
   console.log('finished with bookings')
 }
 
-// generate an array of bookings and set to var called bookingsArr 
+// generate an array of bookings and set to var called bookingsArr
 bookingsGenerator();

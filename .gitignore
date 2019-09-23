@@ -26,8 +26,8 @@ dist/
 
 aws-keys.json
 
-database/restaurantsTableData.csv
-database/usersTableData.csv
+database/restaurantTableData.csv
+database/userTableData.csv
 database/tablesTableData.csv
 database/bookingsTableData.csv
 
