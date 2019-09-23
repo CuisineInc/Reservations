@@ -5,7 +5,7 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-// import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import moment from 'moment';
 
 import PartySize from './partySizeModule.jsx';
@@ -296,7 +296,7 @@ class Reservations extends React.Component {
   }
 
   getListingData(listing = 'L1') {
-    return fetch(`http://54.67.39.70:3008/api/${listing}/reservations`, {
+    return fetch(`http://localhost:3002/api/restaurants/${listing}/reservations`, {
       method: 'GET',
     })
       .then((res) => (

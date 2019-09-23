@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -8,25 +9,32 @@ const compression = require('compression');
 
 const app = express();
 const port = 3002;
-const database = require('../database/database.js');
+// const database = require('../database/database.js');
+const postgres = require('../database/postgresDatabase.js');
 
 app.use(cors());
 app.use(morgan());
 app.use(compression());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 app.use('/:id/reservations', express.static('public'));
 
 app.use(express.static('public'));
 
-app.get('/api/:id/reservations', (req, res) => {
-  const param = req.params.id;
-  database.getListingData(param)
-    .then((data) => {
-      const dataForListing = data[0].Dates.slice();
-      res.send(dataForListing);
-    })
-    .catch((err) => {
-      console.log('Error with retriving data for listing', err);
-    });
-});
+//Get all reservations for a restaurant
+app.get('/api/restaurants/:id/reservations', postgres.getAllReservationsForRestaurant);
 
-app.listen(port, () => { console.log(`argh matey we be arriving at port ${port}`); });
+// //Create a reservation for a restaurant
+app.post('/api/restaurants/:id/reservations', postgres.createReservation);
+
+// //Update a reservation for a restaurant
+app.put('/api/restaurants/:id/reservations/:id', postgres.updateReservation);
+
+// //delete a reservation from a restaurant
+app.delete('/api/:id/reservations/:id', postgres.deleteReservation);
+
+
+app.listen(port, () => {console.log(`argh matey we be arriving at port ${port}`)});

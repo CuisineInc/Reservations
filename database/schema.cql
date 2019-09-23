@@ -35,7 +35,7 @@ CREATE TABLE restaurantdata.bookings (
   restaurant_id int,
   users_id int,
   tables_id int,
-  PRIMARY KEY (id, date_time, party_size, restaurant_id, users_id, tables_id)
+  PRIMARY KEY (restaurant_id, id, date_time, party_size, users_id, tables_id)
 );
 
 COPY restaurantdata.restaurants (id, restaurant_name, seat_capacity) FROM '/mnt/c/users/rklin/hrsf122/reservations/database/restaurantTableData.csv' WITH DELIMITER=',' AND HEADER=TRUE;

@@ -1,0 +1,14 @@
+config:
+  target: 'http://localhost:3002'
+  phases:
+    - duration: 60
+      arrivalRate: 400
+  defaults:
+    headers:
+      x-my-service-auth: '987401838271002188298567'
+scenarios:
+  - flow:
+    - loop:
+      - get:
+          url: "/api/restaurants/8/reservations"
+      count: 50
