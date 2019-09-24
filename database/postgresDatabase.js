@@ -7,7 +7,7 @@ const getRandomInt = function(max) {
 
 const client = new Client({
   user: 'postgres',
-  host: 'localhost',
+  host: 'ec2-18-224-109-21.us-east-2.compute.amazonaws.com',
   database: 'restaurantdata',
   password: 'rachel',
   port: 5432,
@@ -27,12 +27,11 @@ exports.getAllReservations = function(req, res) {
 
 exports.getAllReservationsForRestaurant = function(req, res){
   let query = `SELECT * FROM bookings WHERE restaurant_id = ${req.params.id}`
-  console.log("here")
   client.query(query,(err, data) => {
     if(err){
       console.log(data)
     } else {
-      res.send(data)
+      res.sendStatus(200)
     }
   })
 }
@@ -65,13 +64,13 @@ exports.createReservation = function (req, res){
 }
 
 
-exports.updateReservation = function (req, res){
+exports.updateReservation = function (req, callback){
   let query = `UPDATE "bookings" SET date_time = ${req.body.date_time}, party_size = ${req.body.party_size}, restaurant_id = ${req.body.restaurant_id}, users_id = ${req.body.users_id}, tables_id = ${req.body.tables_id}  WHERE id = ${req.params.id}`
   client.query(query,(err, data) => {
     if(err){
-      console.log(err)
+      callback(err)
     } else {
-      res.send(data)
+      callback(null, data)
     }
   })
 }

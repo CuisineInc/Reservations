@@ -25,7 +25,16 @@ app.use('/:id/reservations', express.static('public'));
 app.use(express.static('public'));
 
 //Get all reservations for a restaurant
-app.get('/api/restaurants/:id/reservations', postgres.getAllReservationsForRestaurant);
+app.get('/api/restaurants/:id/reservations', (req, res) =>{
+  postgres.getAllReservationsForRestaurant(req, (err, data) => {
+    if (err){
+      console.log(err)
+    } else {
+      res.send(data)
+    }
+  })
+
+});
 
 // //Create a reservation for a restaurant
 app.post('/api/restaurants/:id/reservations', postgres.createReservation);
